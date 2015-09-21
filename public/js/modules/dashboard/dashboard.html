@@ -1,0 +1,165 @@
+<div class="container">
+    <div class="row">
+        <div id="catalog" class="content col-sm-12 col-md-9">
+            <div class="category-img">
+                <img class="replace-2x" src="content/img/category-img.jpg" width="870" height="370" alt="">
+
+                <div class="description">In de kijker</div>
+            </div>
+
+            <div class="toolbar clearfix">
+                <input class="search-string form-control" type="search" placeholder="Zoeken"
+                       data-ng-model="vm.filter.terms">
+            </div>
+
+            <div class="toolbar clearfix">
+                <div class="grid-list">
+                    <a href="shop-catalog-grid.html" class="grid">
+                        <span class="glyphicon glyphicon-th-large"></span>
+                    </a>
+			<span class="grid">
+			  <span class="glyphicon glyphicon-th-list"></span>
+			</span>
+                </div>
+
+                <div class="sort-catalog">
+                    <div class="btn-group sort-by btn-select">
+                        <a class="btn dropdown-toggle btn-default" role="button" data-toggle="dropdown" href="#">Sort
+                            by: <span>Rating</span> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Price</a></li>
+                            <li><a href="#">Rating</a></li>
+                            <li><a href="#">Name</a></li>
+                        </ul>
+                    </div>
+                    <!-- .sort-by -->
+                    <button type="button" class="btn up-down btn-default" data-toggle="button"><span></span></button>
+                </div>
+                <!-- .sort-catalog -->
+
+                <div class="sort-catalog">
+                    <div class="btn-group show-by btn-select">
+                        <a class="btn dropdown-toggle btn-default" role="button" data-toggle="dropdown">Toon:
+                            <span data-ng-bind="vm.itemsPerPage"></span> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:void(0);" data-ng-click="vm.itemsPerPage=1">1</a></li>
+                            <li><a href="javascript:void(0);" data-ng-click="vm.itemsPerPage=10">10</a></li>
+                            <li><a href="javascript:void(0);"  data-ng-click="vm.itemsPerPage=20">20</a></li>
+                            <li><a href="javascript:void(0);"  data-ng-click="vm.itemsPerPage=50">50</a></li>
+                        </ul>
+                    </div>
+                    <!-- .show -->
+                    <span class="per-page">per pagina</span>
+                </div>
+                <!-- .sort-catalog -->
+
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="products list row">
+                <div class="well bg-info white" data-ng-if="vm.filtered.length === 0">
+                    Er werden geen websites gevonden met uw zoektermen. <br/>
+                    Gebruik andere woorden, of vink enkele filters af.
+                </div>
+                <div class="product"
+                     data-ng-repeat="website in vm.filtered | offset: (vm.currentPage-1)*vm.itemsPerPage | limitTo: vm.itemsPerPage">
+                    <div class="col-sm-4 col-md-4">
+                        <a data-ng-href="{{website.url}}" target="_blank" class="product-image">
+                            <img class="replace-2x" data-ng-src="content/img/product-1.jpg" alt="" title="" width="270"
+                                 height="270">
+                        </a>
+                    </div>
+                    <div class="col-sm-8 col-md-8">
+                        <h3 class="product-name">
+                            <a data-ng-href="{{website.url}}" target="_blank" data-ng-bind="website.name"></a>
+                        </h3>
+
+                        <div class="reviews-box">
+                            <i class="fa fa-tags"></i>
+                            <span data-ng-repeat="tag in website.tags">
+                                <a href="javascript:void(0);" data-ng-bind="tag.name"
+                                   data-ng-click="vm.addTagFilter(tag)"></a>
+                                <span data-ng-if="!$last" class="separator">|</span>
+                            </span>
+                        </div>
+                        <div class="well well-xs small" data-ng-bind="website.description"></div>
+
+                        <div class="">
+                            <ul class="list-unstyled">
+                                <li data-ng-repeat="objective in website.objectives">
+                                    <i class="fa"
+                                       data-ng-class="!objective.parent ? 'fa-angle-double-right' : 'fa-angle-right'"></i>
+                                    <strong data-ng-if="!objective.parent">{{objective.name}}</strong>
+                                    <span data-ng-if="objective.parent">{{objective.name}}</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- .product -->
+            </div>
+            <!-- .products -->
+
+            <div class="pagination-box">
+                <pagination total-items="vm.totalItems" ng-model="vm.currentPage" max-size="5"
+                            items-per-page="vm.itemsPerPage"
+                            class="pagination-sm" boundary-links="true"
+                            data-first-text="«" data-last-text="»" data-next-text="›"
+                            data-previous-text="‹" data-ng-show="vm.paginationText !== ''"></pagination>
+                <i class="pagination-text" data-ng-bind="vm.paginationText"></i>
+            </div>
+            <!-- .pagination-box -->
+        </div>
+        <!-- .content -->
+
+        <div id="sidebar" class="sidebar col-sm-12 col-md-3">
+            <aside class="widget shop-by">
+                <header>
+                    <h3 class="title">Filter</h3>
+                </header>
+                <div class="section" data-ng-show="vm.filter.levels.length || vm.filter.tags.length">
+                    <h4 class="subtitle">Je zoekt nu op:</h4>
+                    <ul class="selected">
+                        <li data-ng-repeat="level in vm.filter.levels track by level.id | orderBy:'id'">
+                            <span><i class="fa fa-angle-right"></i> Leeftijd: <span
+                                    data-ng-bind="level.description"></span></span>
+                            <a href="javascript:void(0);" data-ng-click="vm.removeLevelFilter(level)"
+                               class="close">×</a>
+                        </li>
+
+                        <li data-ng-repeat="tag in vm.filter.tags track by tag.id | orderBy:'name'">
+                            <span><i class="fa fa-angle-right"></i> Trefwoord: <span
+                                    data-ng-bind="tag.name"></span></span>
+                            <a href="javascript:void(0);" data-ng-click="vm.removeTagFilter(tag)" class="close">×</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h4 class="subtitle">Leeftijd</h4>
+                    <ul>
+                        <li data-ng-repeat="level in vm.levels track by level.id | orderBy:'id'">
+                            <i class="fa fa-angle-right"></i> <a href="javascript:void(0);"
+                                                                 data-ng-click="vm.addLevelFilter(level)"
+                                                                 data-ng-bind="level.description"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h4 class="subtitle">Trefwoord</h4>
+                    <ul>
+                        <li data-ng-repeat="tag in vm.tags track by tag.id | orderBy:'name'">
+                            <i class="fa fa-angle-right"></i> <a href="javascript:void(0);"
+                                                                 data-ng-click="vm.addTagFilter(tag)"
+                                                                 data-ng-bind="tag.name"></a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            <!-- .filter-by -->
+
+        </div>
+    </div>
+</div><!-- .container -->
