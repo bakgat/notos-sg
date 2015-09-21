@@ -11,7 +11,6 @@
 
             //app modules
             'notos.dashboard',
-            'notos.filter',
             'notos.websites'
         ]);
 })();
