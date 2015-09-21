@@ -1,5 +1,5 @@
 /**
- * notos.tags
+ * notos.filter
  * FACTORY: Tag
  */
 
@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('notos.tags')
+        .module('notos.filter')
         .factory('Tag', Tag);
 
     /* @ngInject */
@@ -15,6 +15,5 @@
         var service = HTTPCache.service('tags');
 
         return service;
-
     }
 })();
