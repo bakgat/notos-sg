@@ -91,7 +91,7 @@
             function objectivesContainsTerm(objectives, term) {
                 return _.some(objectives, function (o) {
                     return o && (_.contains(o.code.toLowerCase(), term.toLowerCase()) ||
-                        _.contains(o.name.toLowerCase(), term.toLowerCase());
+                        _.contains(o.name.toLowerCase(), term.toLowerCase()));
                 });
             }
         }
