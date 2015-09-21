@@ -81,16 +81,16 @@
             }
 
             function nameContainsTerm(name, term) {
-                return _.contains(name.toLowerCase(), term.toLowerCase());
+                return name && _.contains(name.toLowerCase(), term.toLowerCase());
             }
 
             function descriptionContainsTerm(description, term) {
-                return _.contains(description.toLowerCase(), term.toLowerCase());
+                return description && _.contains(description.toLowerCase(), term.toLowerCase());
             }
 
             function objectivesContainsTerm(objectives, term) {
                 return _.some(objectives, function (o) {
-                    return _.contains(o.code.toLowerCase(), term.toLowerCase()) ||
+                    return o && (_.contains(o.code.toLowerCase(), term.toLowerCase()) ||
                         _.contains(o.name.toLowerCase(), term.toLowerCase());
                 });
             }
