@@ -1,5 +1,5 @@
 /**
- * notosplus.tags
+ * notos.tags
  * FACTORY: Tag
  */
 
@@ -7,7 +7,7 @@
     'use strict';
 
     angular
-        .module('notosplus.tags')
+        .module('notos.tags')
         .factory('Tag', Tag);
 
     /* @ngInject */

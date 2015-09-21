@@ -2,5 +2,5 @@
     'use strict';
 
     angular
-        .module('notosplus.tags', []);
+        .module('notos.tags', []);
 })();
