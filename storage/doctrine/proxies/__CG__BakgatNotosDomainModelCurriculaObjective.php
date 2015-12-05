@@ -176,16 +176,12 @@ class Objective extends \Bakgat\Notos\Domain\Model\Curricula\Objective implement
     /**
      * {@inheritDoc}
      */
-    public function getId()
+    public function id()
     {
-        if ($this->__isInitialized__ === false) {
-            return (int)  parent::getId();
-        }
 
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'id', array());
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
-
-        return parent::getId();
+        return parent::id();
     }
 
     /**
@@ -384,6 +380,17 @@ class Objective extends \Bakgat\Notos\Domain\Model\Curricula\Objective implement
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'addLevelForGroup', array($group, $level));
 
         return parent::addLevelForGroup($group, $level);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addLevel(\Bakgat\Notos\Domain\Model\Curricula\ObjectiveControlLevel $level)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addLevel', array($level));
+
+        return parent::addLevel($level);
     }
 
 }

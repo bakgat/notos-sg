@@ -1,59 +1,36 @@
 <div class="container">
     <div class="row">
-        <div id="catalog" class="content col-sm-12 col-md-9">
-            <div class="category-img">
-                <img class="replace-2x" src="content/img/category-img.jpg" width="870" height="370" alt="">
-
-                <div class="description">In de kijker</div>
-            </div>
-
-            <div class="toolbar clearfix">
+        <div class="toolbar clearfix">
+            <div class="col-md-9 col-sm-7">
                 <input class="search-string form-control" type="search" placeholder="Zoeken"
                        data-ng-model="vm.filter.terms">
             </div>
 
-            <div class="toolbar clearfix">
-                <div class="grid-list">
-                    <a href="shop-catalog-grid.html" class="grid">
-                        <span class="glyphicon glyphicon-th-large"></span>
-                    </a>
-			<span class="grid">
-			  <span class="glyphicon glyphicon-th-list"></span>
-			</span>
+            <div class="sort-catalog col-md-3 col-sm-5">
+                <div class="btn-group show-by btn-select">
+                    <a class="btn dropdown-toggle btn-default" role="button" data-toggle="dropdown">Toon:
+                        <span data-ng-bind="vm.itemsPerPage"></span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0);" data-ng-click="vm.itemsPerPage=10">10</a></li>
+                        <li><a href="javascript:void(0);" data-ng-click="vm.itemsPerPage=20">20</a></li>
+                        <li><a href="javascript:void(0);" data-ng-click="vm.itemsPerPage=50">50</a></li>
+                    </ul>
                 </div>
+                <!-- .show -->
+                <span class="per-page">per pagina</span>
+            </div>
+        </div>
 
-                <div class="sort-catalog">
-                    <div class="btn-group sort-by btn-select">
-                        <a class="btn dropdown-toggle btn-default" role="button" data-toggle="dropdown" href="#">Sort
-                            by: <span>Rating</span> <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Price</a></li>
-                            <li><a href="#">Rating</a></li>
-                            <li><a href="#">Name</a></li>
-                        </ul>
-                    </div>
-                    <!-- .sort-by -->
-                    <button type="button" class="btn up-down btn-default" data-toggle="button"><span></span></button>
+        <div id="catalog" class="content col-sm-12 col-md-9">
+            <div class="category-img"
+                 data-ng-if="vm.randomSite">
+                <img class="replace-2x" data-ng-src="{{vm.randomSite.image.thumbpath}}" width="870"
+                     height="270" alt="">
+
+                <div class="description">
+                    In de kijker: {{vm.randomSite.name}}<br>
+                    <small>{{vm.randomSite.description}}</small>
                 </div>
-                <!-- .sort-catalog -->
-
-                <div class="sort-catalog">
-                    <div class="btn-group show-by btn-select">
-                        <a class="btn dropdown-toggle btn-default" role="button" data-toggle="dropdown">Toon:
-                            <span data-ng-bind="vm.itemsPerPage"></span> <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="javascript:void(0);" data-ng-click="vm.itemsPerPage=1">1</a></li>
-                            <li><a href="javascript:void(0);" data-ng-click="vm.itemsPerPage=10">10</a></li>
-                            <li><a href="javascript:void(0);"  data-ng-click="vm.itemsPerPage=20">20</a></li>
-                            <li><a href="javascript:void(0);"  data-ng-click="vm.itemsPerPage=50">50</a></li>
-                        </ul>
-                    </div>
-                    <!-- .show -->
-                    <span class="per-page">per pagina</span>
-                </div>
-                <!-- .sort-catalog -->
-
-
             </div>
 
             <div class="clearfix"></div>
@@ -67,7 +44,8 @@
                      data-ng-repeat="website in vm.filtered | offset: (vm.currentPage-1)*vm.itemsPerPage | limitTo: vm.itemsPerPage">
                     <div class="col-sm-4 col-md-4">
                         <a data-ng-href="{{website.url}}" target="_blank" class="product-image">
-                            <img class="replace-2x" data-ng-src="content/img/product-1.jpg" alt="" title="" width="270"
+                            <img class="replace-2x" data-ng-src="{{website.image.thumbpath}}" alt="" title=""
+                                 width="270"
                                  height="270">
                         </a>
                     </div>
@@ -123,14 +101,14 @@
                 <div class="section" data-ng-show="vm.filter.levels.length || vm.filter.tags.length">
                     <h4 class="subtitle">Je zoekt nu op:</h4>
                     <ul class="selected">
-                        <li data-ng-repeat="level in vm.filter.levels track by level.id | orderBy:'id'">
+                        <li data-ng-repeat="level in vm.filter.levels | orderBy:'id'">
                             <span><i class="fa fa-angle-right"></i> Leeftijd: <span
                                     data-ng-bind="level.description"></span></span>
                             <a href="javascript:void(0);" data-ng-click="vm.removeLevelFilter(level)"
                                class="close">×</a>
                         </li>
 
-                        <li data-ng-repeat="tag in vm.filter.tags track by tag.id | orderBy:'name'">
+                        <li data-ng-repeat="tag in vm.filter.tags | orderBy:'name'">
                             <span><i class="fa fa-angle-right"></i> Trefwoord: <span
                                     data-ng-bind="tag.name"></span></span>
                             <a href="javascript:void(0);" data-ng-click="vm.removeTagFilter(tag)" class="close">×</a>
@@ -140,20 +118,41 @@
                 <div class="section">
                     <h4 class="subtitle">Leeftijd</h4>
                     <ul>
-                        <li data-ng-repeat="level in vm.levels track by level.id | orderBy:'id'">
+                        <li data-ng-repeat="level in vm.levels | orderBy:'id' | limitTo: vm.levelLimit">
                             <i class="fa fa-angle-right"></i> <a href="javascript:void(0);"
                                                                  data-ng-click="vm.addLevelFilter(level)"
                                                                  data-ng-bind="level.description"></a>
+                        </li>
+                        <li class="more" data-ng-show="vm.levels.length > 3 && vm.levelLimit === 3">
+                            <a href="javascript:void(0);" class="small"
+                               data-ng-click="vm.levelLimit=vm.levels.length">
+                                <i class="fa fa-caret-down"></i> toon meer
+                            </a>
+                        </li>
+                        <li class="more" data-ng-show="vm.levels.length > 3 && vm.levelLimit === vm.levels.length">
+                            <a href="javascript:void(0);" class="small" data-ng-click="vm.levelLimit=3">
+                                <i class="fa fa-caret-up blue"></i> toon minder
+                            </a>
                         </li>
                     </ul>
                 </div>
                 <div class="section">
                     <h4 class="subtitle">Trefwoord</h4>
                     <ul>
-                        <li data-ng-repeat="tag in vm.tags track by tag.id | orderBy:'name'">
+                        <li data-ng-repeat="tag in vm.tags | orderBy:'name' | limitTo: vm.tagLimit">
                             <i class="fa fa-angle-right"></i> <a href="javascript:void(0);"
                                                                  data-ng-click="vm.addTagFilter(tag)"
                                                                  data-ng-bind="tag.name"></a>
+                        </li>
+                        <li class="more" data-ng-show="vm.tags.length > 3 && vm.tagLimit === 3">
+                            <a href="javascript:void(0);" class="small" data-ng-click="vm.tagLimit=vm.tags.length">
+                                <i class="fa fa-caret-down"></i> toon meer
+                            </a>
+                        </li>
+                        <li class="more" data-ng-show="vm.tags.length > 3 && vm.tagLimit === vm.tags.length">
+                            <a href="javascript:void(0);" class="small" data-ng-click="vm.tagLimit=3">
+                                <i class="fa fa-caret-up"></i> toon minder
+                            </a>
                         </li>
                     </ul>
                 </div>

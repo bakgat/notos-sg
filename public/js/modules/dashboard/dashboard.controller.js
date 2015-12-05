@@ -11,8 +11,9 @@
 
     /* @ngInject */
     function DashboardController($scope, Tag, Website, Level,
-                                 SearchWebsiteFilter) {
+                                 SearchWebsiteFilter, $filter) {
         /*jshint validthis: true */
+        var rnd = -1;
         var vm = this;
 
         vm.websites = [];
@@ -30,6 +31,10 @@
         vm.removeLevelFilter = removeLevelFilter;
         vm.addTagFilter = addTagFilter;
         vm.removeTagFilter = removeTagFilter;
+
+        vm.randomSite = null;
+        vm.tagLimit = 3;
+        vm.levelLimit = 3;
 
         vm.filterFlag = false;
 
@@ -83,6 +88,7 @@
 
         function removeLevelFilter(level) {
             vm.levels.push(level);
+            //vm.levels = $filter('orderBy')(vm.levels, 'id');
             var index = vm.filter.levels.indexOf(level);
             vm.filter.levels.splice(index, 1);
         }
@@ -95,13 +101,13 @@
 
         function removeTagFilter(tag) {
             vm.tags.push(tag);
+            //vm.tags = $filter('orderBy')(vm.tags, 'name');
             var index = vm.filter.tags.indexOf(tag);
             vm.filter.tags.splice(index, 1);
         }
 
         $scope.$watch('vm.filter', function (tags) {
             if (vm.websites.length) {
-                var websites = [];
                 vm.filtered = SearchWebsiteFilter(vm.websites, vm.filter);
             }
             setFilterFlag();
@@ -140,6 +146,19 @@
             } else {
                 vm.paginationText = '';
             }
+        }
+
+        $scope.$watch('vm.websites', function () {
+            if (vm.websites.length) {
+                setRandomSite();
+            }
+        });
+        function setRandomSite() {
+            while (!vm.randomSite || !vm.randomSite.image) {
+                rnd = Math.floor((Math.random() * vm.websites.length));
+                vm.randomSite = vm.websites[rnd];
+            }
+            return vm.randomSite;
         }
     }
 })();
