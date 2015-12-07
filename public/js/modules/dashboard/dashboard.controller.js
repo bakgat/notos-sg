@@ -177,7 +177,7 @@
         }
 
         function pageChanged() {
-            window.scrollTo(0, 0);
+            angular.element('html, body').animate({ scrollTop: 0 }, 200);
         }
     }
 })();
