@@ -35,6 +35,8 @@
         vm.randomSite = null;
         vm.tagLimit = 3;
         vm.levelLimit = 3;
+        vm.levelCollapsed = true;
+        vm.tagCollapsed = true;
 
         vm.filterFlag = false;
 

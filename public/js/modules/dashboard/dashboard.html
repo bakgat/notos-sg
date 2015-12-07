@@ -1,7 +1,8 @@
 <div class="container">
     <div class="row">
         <div id="catalog" class="content col-sm-12 col-md-9" data-ng-class="{loading : vm.loadingMain}">
-            <div class="category-img" data-ng-class="{narrow: vm.filter.terms !== '' || vm.filter.tags.length > 0 || vm.filter.levels.length > 0}"
+            <div class="category-img"
+                 data-ng-class="{narrow: vm.filter.terms !== '' || vm.filter.tags.length > 0 || vm.filter.levels.length > 0}"
                  data-ng-if="vm.randomSite">
                 <img class="replace-2x" data-ng-src="{{vm.randomSite.image.thumbpath}}" width="870"
                      height="270" alt="">
@@ -14,7 +15,8 @@
 
             <div class="toolbar clearfix">
                 <div class="col-md-9 col-sm-7">
-                    <input class="search-string form-control" type="search" placeholder="Start hier met zoeken" autofocus
+                    <input class="search-string form-control" type="search" placeholder="Start hier met zoeken"
+                           autofocus
                            data-ng-model="vm.filter.terms">
                 </div>
 
@@ -66,7 +68,8 @@
                                 <span data-ng-if="!$last" class="separator">|</span>
                             </span>
                         </div>
-                        <div class="well well-xs small" data-ng-if="website.description" data-ng-bind="website.description"></div>
+                        <div class="well well-xs small" data-ng-if="website.description"
+                             data-ng-bind="website.description"></div>
 
                         <div class="">
                             <ul class="list-unstyled">
@@ -123,44 +126,33 @@
                 </div>
                 <div class="section">
                     <h4 class="subtitle">Leeftijd</h4>
-                    <ul data-ng-class="{loading : vm.loadingLevels}">
-                        <li data-ng-repeat="level in vm.levels | orderBy:'id' | limitTo: vm.levelLimit">
+                    <ul data-ng-class="{loading : vm.loadingLevels, collapsed : vm.levelCollapsed}">
+                        <li data-ng-repeat="level in vm.levels | orderBy:'id'">
                             <i class="fa fa-angle-right"></i> <a href="javascript:void(0);"
                                                                  data-ng-click="vm.addLevelFilter(level)"
                                                                  data-ng-bind="level.description"></a>
                         </li>
-                        <li class="more" data-ng-show="vm.levels.length > 3 && vm.levelLimit === 3">
-                            <a href="javascript:void(0);" class="small"
-                               data-ng-click="vm.levelLimit=vm.levels.length">
-                                <i class="fa fa-caret-down"></i> toon meer
-                            </a>
-                        </li>
-                        <li class="more" data-ng-show="vm.levels.length > 3 && vm.levelLimit === vm.levels.length">
-                            <a href="javascript:void(0);" class="small" data-ng-click="vm.levelLimit=3">
-                                <i class="fa fa-caret-up blue"></i> toon minder
-                            </a>
-                        </li>
                     </ul>
+                    <a href="javascript:void(0);" class="more" data-ng-if="vm.levels.length > 3"
+                       data-ng-click="vm.levelCollapsed ? vm.levelCollapsed=false : vm.levelCollapsed=true">
+                        <i class="fa" data-ng-class="vm.levelCollapsed ? 'fa-caret-down' : 'fa-caret-up'"></i>
+                            toon {{vm.levelCollapsed ? 'meer' : 'minder'}}
+                    </a>
                 </div>
                 <div class="section">
                     <h4 class="subtitle">Trefwoord</h4>
-                    <ul data-ng-class="{loading : vm.loadingTags}">
-                        <li data-ng-repeat="tag in vm.tags | orderBy:'name' | limitTo: vm.tagLimit">
+                    <ul data-ng-class="{loading : vm.loadingTags, collapsed=vm.tagCollapsed}">
+                        <li data-ng-repeat="tag in vm.tags | orderBy:'name'">
                             <i class="fa fa-angle-right"></i> <a href="javascript:void(0);"
                                                                  data-ng-click="vm.addTagFilter(tag)"
                                                                  data-ng-bind="tag.name"></a>
                         </li>
-                        <li class="more" data-ng-show="vm.tags.length > 3 && vm.tagLimit === 3">
-                            <a href="javascript:void(0);" class="small" data-ng-click="vm.tagLimit=vm.tags.length">
-                                <i class="fa fa-caret-down"></i> toon meer
-                            </a>
-                        </li>
-                        <li class="more" data-ng-show="vm.tags.length > 3 && vm.tagLimit === vm.tags.length">
-                            <a href="javascript:void(0);" class="small" data-ng-click="vm.tagLimit=3">
-                                <i class="fa fa-caret-up"></i> toon minder
-                            </a>
-                        </li>
                     </ul>
+                    <a href="javascript:void(0);" class="more" data-ng-if="vm.tags.length > 3"
+                       data-ng-click="vm.tagCollapsed ? vm.tagCollapsed=false : vm.tagCollapsed=true">
+                        <i class="fa" data-ng-class="vm.tagCollapsed ? 'fa-caret-down' : 'fa-caret-up'"></i>
+                            toon {{vm.tagCollapsed ? 'meer' : 'minder'}}
+                    </a>
                 </div>
             </aside>
             <!-- .filter-by -->
