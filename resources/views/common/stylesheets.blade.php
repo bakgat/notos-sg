@@ -1,4 +1,5 @@
 <!-- Google Font -->
+<link href="http://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet" type="text/css">
 <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic'>
 
 <!-- Plugins CSS -->

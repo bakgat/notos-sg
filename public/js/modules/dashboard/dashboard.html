@@ -14,11 +14,14 @@
 
             <div class="toolbar clearfix">
                 <div class="col-md-9 col-sm-7">
-                    <input class="search-string form-control" type="search" placeholder="Zoeken"
+                    <input class="search-string form-control" type="search" placeholder="Start hier met zoeken" autofocus
                            data-ng-model="vm.filter.terms">
                 </div>
 
                 <div class="sort-catalog col-md-3 col-sm-5">
+                    <div class="counter">
+                        {{vm.filtered.length}} website{{vm.filtered.length !== 1 ? 's' : ''}} gevonden
+                    </div>
                     <div class="btn-group show-by btn-select">
                         <a class="btn dropdown-toggle btn-default" role="button" data-toggle="dropdown">Toon:
                             <span data-ng-bind="vm.itemsPerPage"></span> <span class="caret"></span></a>
@@ -73,6 +76,7 @@
                                        data-ng-class="!objective.parent ? 'fa-angle-double-right' : 'fa-angle-right'"></i>
                                     <strong data-ng-if="!objective.parent">{{objective.name}}</strong>
                                     <span data-ng-if="objective.parent">{{objective.name}}</span>
+                                    <em class="small">({{objective.code}})</em>
                                 </li>
                             </ul>
                         </div>
