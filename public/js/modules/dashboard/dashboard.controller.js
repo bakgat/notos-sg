@@ -84,7 +84,8 @@
             return Website.full().then(websitesCompleted);
 
             function websitesCompleted(response) {
-                vm.websites = response;
+                vm.websites = $filter('orderBy')(response, 'id', true);;
+
 
                 vm.loadingMain = false;
                 return vm.websites;

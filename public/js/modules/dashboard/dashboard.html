@@ -46,12 +46,11 @@
 
 
                 <div class="product"
-                     data-ng-repeat="website in vm.filtered | offset: (vm.currentPage-1)*vm.itemsPerPage | limitTo: vm.itemsPerPage | orderBy:id:true">
+                     data-ng-repeat="website in vm.filtered | offset: (vm.currentPage-1)*vm.itemsPerPage | limitTo: vm.itemsPerPage">
                     <div class="col-sm-4 col-md-4">
                         <a data-ng-href="{{website.url}}" target="_blank" class="product-image">
                             <img class="replace-2x" data-ng-src="{{website.image.thumbpath}}" alt="" title=""
-                                 width="270"
-                                 height="270">
+                                 width="270" height="270">
                         </a>
                     </div>
                     <div class="col-sm-8 col-md-8">
