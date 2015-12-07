@@ -12,7 +12,7 @@
 
     /* @ngInject */
     function Tag(HTTPCache) {
-        var service = HTTPCache.service('tags');
+        var service = HTTPCache.service('tags').one('type').one('website');
 
         return service;
     }

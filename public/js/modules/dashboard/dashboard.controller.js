@@ -95,6 +95,7 @@
             }
         }
 
+
         function addLevelFilter(level) {
             vm.filter.levels.push(level);
             var index = vm.levels.indexOf(level);
@@ -177,7 +178,7 @@
         }
 
         function pageChanged() {
-            angular.element('html, body').animate({ scrollTop: 0 }, 500);
+            angular.element('html, body').animate({scrollTop: 0}, 500);
         }
     }
 })();
