@@ -22,21 +22,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/modules/dashboard/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.791667">
-              <caret line="93" column="57" selection-start-line="93" selection-start-column="57" selection-end-line="93" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.54196644">
+              <caret line="94" column="35" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.controller.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard.controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/modules/dashboard/dashboard.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67391306">
-              <caret line="179" column="73" selection-start-line="179" selection-start-column="73" selection-end-line="179" selection-end-column="73" />
+            <state vertical-scroll-proportion="-3.8888888">
+              <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
               <folding>
                 <element signature="e#364#391#0" expanded="false" />
                 <element signature="e#2310#2453#0" expanded="false" />
@@ -171,8 +171,8 @@
         <option value="$PROJECT_DIR$/resources/assets/less/theme-variables.less" />
         <option value="$PROJECT_DIR$/resources/assets/less/mixins.less" />
         <option value="$PROJECT_DIR$/resources/assets/less/shop.less" />
-        <option value="$PROJECT_DIR$/public/js/modules/dashboard/dashboard.html" />
         <option value="$PROJECT_DIR$/public/js/modules/dashboard/dashboard.controller.js" />
+        <option value="$PROJECT_DIR$/public/js/modules/dashboard/dashboard.html" />
       </list>
     </option>
   </component>
@@ -331,7 +331,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24018127" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -778,18 +778,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/modules/dashboard/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.791667">
-          <caret line="93" column="57" selection-start-line="93" selection-start-column="57" selection-end-line="93" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/modules/dashboard/dashboard.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67391306">
-          <caret line="179" column="73" selection-start-line="179" selection-start-column="73" selection-end-line="179" selection-end-column="73" />
+        <state vertical-scroll-proportion="-3.8888888">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
           <folding>
             <element signature="e#364#391#0" expanded="false" />
             <element signature="e#2310#2453#0" expanded="false" />
@@ -797,6 +789,14 @@
             <element signature="e#3324#3368#0" expanded="false" />
             <element signature="e#3759#4314#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/modules/dashboard/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54196644">
+          <caret line="94" column="35" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
