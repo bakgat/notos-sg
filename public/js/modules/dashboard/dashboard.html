@@ -3,7 +3,7 @@
         <div id="catalog" class="content col-sm-12 col-md-9" data-ng-class="{loading : vm.loadingMain}">
             <div class="category-img" data-ng-class="{narrow: vm.filter.terms !== '' || vm.filter.tags.length > 0 || vm.filter.levels.length > 0}"
                  data-ng-if="vm.randomSite">
-                <img class="replace-2x" data-ng-src="{{vm.randomSite.image.webpath}}" width="870"
+                <img class="replace-2x" data-ng-src="{{vm.randomSite.image.thumbpath}}" width="870"
                      height="270" alt="">
 
                 <div class="description">
@@ -46,7 +46,7 @@
                      data-ng-repeat="website in vm.filtered | offset: (vm.currentPage-1)*vm.itemsPerPage | limitTo: vm.itemsPerPage | orderBy:id:true">
                     <div class="col-sm-4 col-md-4">
                         <a data-ng-href="{{website.url}}" target="_blank" class="product-image">
-                            <img class="replace-2x" data-ng-src="{{website.image.webpath}}" alt="" title=""
+                            <img class="replace-2x" data-ng-src="{{website.image.thumbpath}}" alt="" title=""
                                  width="270"
                                  height="270">
                         </a>
