@@ -13,6 +13,12 @@
       list-style: none;
       margin-left: 0;
       padding-left: 0;
+      position: relative;
+
+      & > li {
+        transition: opacity linear .8s;
+        opacity: 1;
+      }
     }
     header,
     .title-block {

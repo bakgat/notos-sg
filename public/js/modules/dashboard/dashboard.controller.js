@@ -47,6 +47,10 @@
         ///////////
 
         function activate() {
+            vm.loadingMain = true;
+            vm.loadingLevels = true;
+            vm.loadingTags = true;
+
             getTags();
             getLevels();
             getWebsites().then(function () {
@@ -60,7 +64,9 @@
             return Tag.getList().then(tagsCompleted);
 
             function tagsCompleted(response) {
-                return vm.tags = response;
+                vm.tags = response;
+                vm.loadingTags = false;
+                return vm.tags;
             }
         }
 
@@ -68,7 +74,9 @@
             return Level.getList().then(levelCompleted);
 
             function levelCompleted(response) {
-                return vm.levels = response;
+                vm.levels = response;
+                vm.loadingLevels = false;
+                return vm.levels;
             }
         }
 
@@ -76,7 +84,10 @@
             return Website.full().then(websitesCompleted);
 
             function websitesCompleted(response) {
-                return vm.websites = response;
+                vm.websites = response;
+
+                vm.loadingMain = false;
+                return vm.websites;
             }
         }
 

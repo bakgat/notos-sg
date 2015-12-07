@@ -1,35 +1,35 @@
 <div class="container">
     <div class="row">
-        <div class="toolbar clearfix">
-            <div class="col-md-9 col-sm-7">
-                <input class="search-string form-control" type="search" placeholder="Zoeken"
-                       data-ng-model="vm.filter.terms">
-            </div>
-
-            <div class="sort-catalog col-md-3 col-sm-5">
-                <div class="btn-group show-by btn-select">
-                    <a class="btn dropdown-toggle btn-default" role="button" data-toggle="dropdown">Toon:
-                        <span data-ng-bind="vm.itemsPerPage"></span> <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0);" data-ng-click="vm.itemsPerPage=10">10</a></li>
-                        <li><a href="javascript:void(0);" data-ng-click="vm.itemsPerPage=20">20</a></li>
-                        <li><a href="javascript:void(0);" data-ng-click="vm.itemsPerPage=50">50</a></li>
-                    </ul>
-                </div>
-                <!-- .show -->
-                <span class="per-page">per pagina</span>
-            </div>
-        </div>
-
-        <div id="catalog" class="content col-sm-12 col-md-9">
-            <div class="category-img"
+        <div id="catalog" class="content col-sm-12 col-md-9" data-ng-class="{loading : vm.loadingMain}">
+            <div class="category-img" data-ng-class="{narrow: vm.filter.terms !== '' || vm.filter.tags.length > 0 || vm.filter.levels.length > 0}"
                  data-ng-if="vm.randomSite">
-                <img class="replace-2x" data-ng-src="{{vm.randomSite.image.thumbpath}}" width="870"
+                <img class="replace-2x" data-ng-src="{{vm.randomSite.image.webpath}}" width="870"
                      height="270" alt="">
 
                 <div class="description">
                     In de kijker: {{vm.randomSite.name}}<br>
                     <small>{{vm.randomSite.description}}</small>
+                </div>
+            </div>
+
+            <div class="toolbar clearfix">
+                <div class="col-md-9 col-sm-7">
+                    <input class="search-string form-control" type="search" placeholder="Zoeken"
+                           data-ng-model="vm.filter.terms">
+                </div>
+
+                <div class="sort-catalog col-md-3 col-sm-5">
+                    <div class="btn-group show-by btn-select">
+                        <a class="btn dropdown-toggle btn-default" role="button" data-toggle="dropdown">Toon:
+                            <span data-ng-bind="vm.itemsPerPage"></span> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:void(0);" data-ng-click="vm.itemsPerPage=10">10</a></li>
+                            <li><a href="javascript:void(0);" data-ng-click="vm.itemsPerPage=20">20</a></li>
+                            <li><a href="javascript:void(0);" data-ng-click="vm.itemsPerPage=50">50</a></li>
+                        </ul>
+                    </div>
+                    <!-- .show -->
+                    <span class="per-page">per pagina</span>
                 </div>
             </div>
 
@@ -40,11 +40,13 @@
                     Er werden geen websites gevonden met uw zoektermen. <br/>
                     Gebruik andere woorden, of vink enkele filters af.
                 </div>
+
+
                 <div class="product"
-                     data-ng-repeat="website in vm.filtered | offset: (vm.currentPage-1)*vm.itemsPerPage | limitTo: vm.itemsPerPage">
+                     data-ng-repeat="website in vm.filtered | offset: (vm.currentPage-1)*vm.itemsPerPage | limitTo: vm.itemsPerPage | orderBy:id:true">
                     <div class="col-sm-4 col-md-4">
                         <a data-ng-href="{{website.url}}" target="_blank" class="product-image">
-                            <img class="replace-2x" data-ng-src="{{website.image.thumbpath}}" alt="" title=""
+                            <img class="replace-2x" data-ng-src="{{website.image.webpath}}" alt="" title=""
                                  width="270"
                                  height="270">
                         </a>
@@ -62,7 +64,7 @@
                                 <span data-ng-if="!$last" class="separator">|</span>
                             </span>
                         </div>
-                        <div class="well well-xs small" data-ng-bind="website.description"></div>
+                        <div class="well well-xs small" data-ng-if="website.description" data-ng-bind="website.description"></div>
 
                         <div class="">
                             <ul class="list-unstyled">
@@ -117,7 +119,7 @@
                 </div>
                 <div class="section">
                     <h4 class="subtitle">Leeftijd</h4>
-                    <ul>
+                    <ul data-ng-class="{loading : vm.loadingLevels}">
                         <li data-ng-repeat="level in vm.levels | orderBy:'id' | limitTo: vm.levelLimit">
                             <i class="fa fa-angle-right"></i> <a href="javascript:void(0);"
                                                                  data-ng-click="vm.addLevelFilter(level)"
@@ -138,7 +140,7 @@
                 </div>
                 <div class="section">
                     <h4 class="subtitle">Trefwoord</h4>
-                    <ul>
+                    <ul data-ng-class="{loading : vm.loadingTags}">
                         <li data-ng-repeat="tag in vm.tags | orderBy:'name' | limitTo: vm.tagLimit">
                             <i class="fa fa-angle-right"></i> <a href="javascript:void(0);"
                                                                  data-ng-click="vm.addTagFilter(tag)"
