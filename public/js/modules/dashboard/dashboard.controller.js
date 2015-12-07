@@ -42,6 +42,8 @@
         vm.currentPage = 1;
         vm.totalItems = 0;
 
+        vm.pageChanged = pageChanged;
+
 
         activate();
         ///////////
@@ -84,7 +86,8 @@
             return Website.full().then(websitesCompleted);
 
             function websitesCompleted(response) {
-                vm.websites = $filter('orderBy')(response, 'id', true);;
+                vm.websites = $filter('orderBy')(response, 'id', true);
+                ;
 
 
                 vm.loadingMain = false;
@@ -100,7 +103,7 @@
 
         function removeLevelFilter(level) {
             vm.levels.push(level);
-            //vm.levels = $filter('orderBy')(vm.levels, 'id');
+
             var index = vm.filter.levels.indexOf(level);
             vm.filter.levels.splice(index, 1);
         }
@@ -113,7 +116,7 @@
 
         function removeTagFilter(tag) {
             vm.tags.push(tag);
-            //vm.tags = $filter('orderBy')(vm.tags, 'name');
+
             var index = vm.filter.tags.indexOf(tag);
             vm.filter.tags.splice(index, 1);
         }
@@ -171,6 +174,10 @@
                 vm.randomSite = vm.websites[rnd];
             }
             return vm.randomSite;
+        }
+
+        function pageChanged() {
+            window.scrollTo(0, 0);
         }
     }
 })();
