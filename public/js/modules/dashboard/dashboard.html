@@ -136,12 +136,12 @@
                     <a href="javascript:void(0);" class="more" data-ng-if="vm.levels.length > 3"
                        data-ng-click="vm.levelCollapsed ? vm.levelCollapsed=false : vm.levelCollapsed=true">
                         <i class="fa" data-ng-class="vm.levelCollapsed ? 'fa-caret-down' : 'fa-caret-up'"></i>
-                            toon {{vm.levelCollapsed ? 'meer' : 'minder'}}
+                        toon {{vm.levelCollapsed ? 'meer' : 'minder'}}
                     </a>
                 </div>
                 <div class="section">
                     <h4 class="subtitle">Trefwoord</h4>
-                    <ul data-ng-class="{loading : vm.loadingTags, collapsed=vm.tagCollapsed}">
+                    <ul data-ng-class="{loading : vm.loadingTags, collapsed:vm.tagCollapsed}">
                         <li data-ng-repeat="tag in vm.tags | orderBy:'name'">
                             <i class="fa fa-angle-right"></i> <a href="javascript:void(0);"
                                                                  data-ng-click="vm.addTagFilter(tag)"
@@ -151,7 +151,7 @@
                     <a href="javascript:void(0);" class="more" data-ng-if="vm.tags.length > 3"
                        data-ng-click="vm.tagCollapsed ? vm.tagCollapsed=false : vm.tagCollapsed=true">
                         <i class="fa" data-ng-class="vm.tagCollapsed ? 'fa-caret-down' : 'fa-caret-up'"></i>
-                            toon {{vm.tagCollapsed ? 'meer' : 'minder'}}
+                        toon {{vm.tagCollapsed ? 'meer' : 'minder'}}
                     </a>
                 </div>
             </aside>
