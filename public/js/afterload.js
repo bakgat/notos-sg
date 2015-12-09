@@ -39,9 +39,9 @@ $(document).ready(function () {
         $('body').addClass('touch-device');
 
     menu();
+
+
 });
-
-
 
 
 //Header Menu
