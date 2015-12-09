@@ -32,3 +32,4 @@
 <script src="/js/app.min.js"></script>
 <script src="/js/afterload.js"></script>
 <!-- end inject app:scripts -->
+
