@@ -45,7 +45,7 @@
                     if (_.any(levels, function (level) {
                             return _.any(website.objectives, function (objective) {
                                 return _.some(objective.levels, function (l) {
-                                    return l.level > 0 && l.group.id === level.id;
+                                    return l.level > 0 && l.group.id === level.p_id;
                                 })
                             });
                         })) {
