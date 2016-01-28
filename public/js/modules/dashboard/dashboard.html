@@ -113,9 +113,9 @@
                 <div class="section" data-ng-show="vm.filter.levels.length || vm.filter.tags.length">
                     <h4 class="subtitle">Je zoekt nu op:</h4>
                     <ul class="selected">
-                        <li data-ng-repeat="level in vm.filter.levels | orderBy:'id'">
+                        <li data-ng-repeat="level in vm.filter.levels | orderBy:'p_id'">
                             <span><i class="fa fa-angle-right"></i> Leeftijd: <span
-                                    data-ng-bind="level.last_name"></span></span>
+                                    data-ng-bind="level.p_lastName"></span></span>
                             <a href="javascript:void(0);" data-ng-click="vm.removeLevelFilter(level)"
                                class="close">×</a>
                         </li>
@@ -130,10 +130,10 @@
                 <div class="section">
                     <h4 class="subtitle">Leeftijd</h4>
                     <ul data-ng-class="{loading : vm.loadingLevels, collapsed : vm.levelCollapsed}">
-                        <li data-ng-repeat="level in vm.levels | orderBy:'id'">
+                        <li data-ng-repeat="level in vm.levels | orderBy:'p_id'">
                             <i class="fa fa-angle-right"></i> <a href="javascript:void(0);"
                                                                  data-ng-click="vm.addLevelFilter(level)"
-                                                                 data-ng-bind="level.last_name"></a>
+                                                                 data-ng-bind="level.p_lastName"></a>
                         </li>
                     </ul>
                     <a href="javascript:void(0);" class="more" data-ng-if="vm.levels.length > 3"

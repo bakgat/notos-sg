@@ -15,6 +15,5 @@
         var service = HTTPCache.service('group').one('levels');
 
         return service;
-
     }
 })();
