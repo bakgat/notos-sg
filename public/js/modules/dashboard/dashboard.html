@@ -115,7 +115,7 @@
                     <ul class="selected">
                         <li data-ng-repeat="level in vm.filter.levels | orderBy:'id'">
                             <span><i class="fa fa-angle-right"></i> Leeftijd: <span
-                                    data-ng-bind="level.description"></span></span>
+                                    data-ng-bind="level.last_name"></span></span>
                             <a href="javascript:void(0);" data-ng-click="vm.removeLevelFilter(level)"
                                class="close">×</a>
                         </li>
@@ -133,7 +133,7 @@
                         <li data-ng-repeat="level in vm.levels | orderBy:'id'">
                             <i class="fa fa-angle-right"></i> <a href="javascript:void(0);"
                                                                  data-ng-click="vm.addLevelFilter(level)"
-                                                                 data-ng-bind="level.description"></a>
+                                                                 data-ng-bind="level.last_name"></a>
                         </li>
                     </ul>
                     <a href="javascript:void(0);" class="more" data-ng-if="vm.levels.length > 3"
