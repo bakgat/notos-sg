@@ -36,7 +36,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'description', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'avatar', 'id', 'firstName', 'lastName', 'kind', 'references', 'relatedTo');
+            return ['__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'description', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'avatar', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'parent', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'children', 'id', 'firstName', 'lastName', 'kind', 'references', 'relatedTo'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'description', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'avatar', 'id', 'firstName', 'lastName', 'kind', 'references', 'relatedTo');
+        return ['__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'description', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'avatar', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'parent', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Identity\\Group' . "\0" . 'children', 'id', 'firstName', 'lastName', 'kind', 'references', 'relatedTo'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -179,7 +179,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function setName(\Bakgat\Notos\Domain\Model\Identity\Name $name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -190,7 +190,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function name()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'name', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'name', []);
 
         return parent::name();
     }
@@ -201,7 +201,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function setDescription($description)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', array($description));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', [$description]);
 
         return parent::setDescription($description);
     }
@@ -212,7 +212,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function description()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'description', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'description', []);
 
         return parent::description();
     }
@@ -223,7 +223,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function setAvatar($avatar)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAvatar', array($avatar));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAvatar', [$avatar]);
 
         return parent::setAvatar($avatar);
     }
@@ -234,9 +234,75 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function avatar()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'avatar', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'avatar', []);
 
         return parent::avatar();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setParent(\Bakgat\Notos\Domain\Model\Identity\Group $parent)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setParent', [$parent]);
+
+        return parent::setParent($parent);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function parent()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'parent', []);
+
+        return parent::parent();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function children()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'children', []);
+
+        return parent::children();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addChild(\Bakgat\Notos\Domain\Model\Identity\Group $child)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addChild', [$child]);
+
+        return parent::addChild($child);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeChild(\Bakgat\Notos\Domain\Model\Identity\Group $child)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeChild', [$child]);
+
+        return parent::removeChild($child);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function clearChildren()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'clearChildren', []);
+
+        return parent::clearChildren();
     }
 
     /**
@@ -245,7 +311,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function id()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'id', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'id', []);
 
         return parent::id();
     }
@@ -256,7 +322,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function setFirstName(\Bakgat\Notos\Domain\Model\Identity\Name $firstName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFirstName', array($firstName));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFirstName', [$firstName]);
 
         return parent::setFirstName($firstName);
     }
@@ -267,7 +333,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function firstName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'firstName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'firstName', []);
 
         return parent::firstName();
     }
@@ -278,7 +344,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function setLastName(\Bakgat\Notos\Domain\Model\Identity\Name $lastName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLastName', array($lastName));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLastName', [$lastName]);
 
         return parent::setLastName($lastName);
     }
@@ -289,7 +355,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function lastName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'lastName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'lastName', []);
 
         return parent::lastName();
     }
@@ -300,7 +366,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function fullName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'fullName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'fullName', []);
 
         return parent::fullName();
     }
@@ -311,7 +377,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function setKind(\Bakgat\Notos\Domain\Model\Kind $kind)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setKind', array($kind));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setKind', [$kind]);
 
         return parent::setKind($kind);
     }
@@ -322,7 +388,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function kind()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'kind', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'kind', []);
 
         return parent::kind();
     }
@@ -333,7 +399,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function references()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'references', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'references', []);
 
         return parent::references();
     }
@@ -344,7 +410,7 @@ class Group extends \Bakgat\Notos\Domain\Model\Identity\Group implements \Doctri
     public function relatedTo()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'relatedTo', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'relatedTo', []);
 
         return parent::relatedTo();
     }

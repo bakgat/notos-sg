@@ -36,7 +36,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'id', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'curriculum', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'name', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'parent', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'children', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'objectives', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'type');
+            return ['__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'id', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'curriculum', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'name', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'parent', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'children', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'objectives', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'type'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'id', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'curriculum', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'name', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'parent', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'children', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'objectives', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'type');
+        return ['__isInitialized__', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'id', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'curriculum', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'name', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'parent', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'children', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'objectives', '' . "\0" . 'Bakgat\\Notos\\Domain\\Model\\Curricula\\Structure' . "\0" . 'type'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -179,7 +179,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function id()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'id', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'id', []);
 
         return parent::id();
     }
@@ -190,7 +190,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function setName(\Bakgat\Notos\Domain\Model\Identity\Name $name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -201,7 +201,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function name()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'name', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'name', []);
 
         return parent::name();
     }
@@ -212,7 +212,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function setCurriculum(\Bakgat\Notos\Domain\Model\Curricula\Curriculum $curriculum)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCurriculum', array($curriculum));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCurriculum', [$curriculum]);
 
         return parent::setCurriculum($curriculum);
     }
@@ -223,7 +223,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function curriculum()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'curriculum', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'curriculum', []);
 
         return parent::curriculum();
     }
@@ -234,7 +234,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function setParent(\Bakgat\Notos\Domain\Model\Curricula\Structure $parent)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setParent', array($parent));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setParent', [$parent]);
 
         return parent::setParent($parent);
     }
@@ -245,7 +245,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function parent()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'parent', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'parent', []);
 
         return parent::parent();
     }
@@ -256,7 +256,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function setChildren($children)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setChildren', array($children));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setChildren', [$children]);
 
         return parent::setChildren($children);
     }
@@ -267,7 +267,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function children()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'children', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'children', []);
 
         return parent::children();
     }
@@ -278,7 +278,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function addChild(\Bakgat\Notos\Domain\Model\Curricula\Structure $structure)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addChild', array($structure));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addChild', [$structure]);
 
         return parent::addChild($structure);
     }
@@ -289,7 +289,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function setObjectives(\Doctrine\Common\Collections\ArrayCollection $objectives)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setObjectives', array($objectives));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setObjectives', [$objectives]);
 
         return parent::setObjectives($objectives);
     }
@@ -300,7 +300,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function objectives()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'objectives', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'objectives', []);
 
         return parent::objectives();
     }
@@ -311,7 +311,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function addObjective(\Bakgat\Notos\Domain\Model\Curricula\Objective $objective)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addObjective', array($objective));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addObjective', [$objective]);
 
         return parent::addObjective($objective);
     }
@@ -322,7 +322,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function setType($type)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setType', array($type));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setType', [$type]);
 
         return parent::setType($type);
     }
@@ -333,7 +333,7 @@ class Structure extends \Bakgat\Notos\Domain\Model\Curricula\Structure implement
     public function type()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'type', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'type', []);
 
         return parent::type();
     }
