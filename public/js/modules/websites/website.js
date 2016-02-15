@@ -15,7 +15,8 @@
 
         var service = {
             full: full,
-            getList: getList
+            getList: getList,
+            suggest: suggest
         };
 
         return service;
@@ -27,6 +28,10 @@
 
         function full() {
             return HTTPCache.service('websites').one('full').getList();
+        }
+
+        function suggest(data) {
+            return HTTPCache.one('websites').post('suggest', {data: data});
         }
     }
 })();

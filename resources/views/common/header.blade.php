@@ -10,9 +10,7 @@
                     </div>
                 </div><!-- .logo-box -->
                 <div class="col-xs-6 col-md-10 col-lg-9 padding-mini">
-                    <button class="btn btn-info pull-right">
-                        <i class="fa fa-lightbulb-o fa-2x"></i> <strong>Waw! Ik heb zelf een idee</strong>
-                    </button>
+
                 </div>
             </div><!--.row -->
         </div>

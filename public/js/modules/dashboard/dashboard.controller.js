@@ -21,6 +21,7 @@
         vm.tags = [];
         vm.levels = [];
 
+
         vm.filter = {
             levels: [],
             tags: [],
@@ -46,6 +47,11 @@
 
         vm.pageChanged = pageChanged;
 
+        vm.idea = {url: null, description: null};
+        vm.submitIdea = false;
+        vm.acceptedIdea = false;
+
+        vm.sendIdea = sendIdea;
 
         activate();
         ///////////
@@ -181,6 +187,13 @@
 
         function pageChanged() {
             angular.element('html, body').animate({scrollTop: 0}, 500);
+        }
+
+        function sendIdea() {
+            Website.suggest(vm.idea);
+
+            vm.submitIdea = false;
+            vm.acceptedIdea = true;
         }
     }
 })();
