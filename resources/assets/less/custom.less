@@ -282,3 +282,21 @@
   transition: 0.5s ease-out all;
   .opacity(.1);
 }
+
+.submitidea {
+
+  max-height: 0px;
+  overflow: hidden;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  -webkit-transition-timing-function: cubic-bezier(.22, 0, .38, 1);
+  transition-timing-function: cubic-bezier(.22, 0, .38, 1);
+
+  &.show {
+    max-height: 500px;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    -webkit-transition-timing-function: cubic-bezier(.22, 0, .38, 1);
+    transition-timing-function: cubic-bezier(.22, 0, .38, 1);
+  }
+}
