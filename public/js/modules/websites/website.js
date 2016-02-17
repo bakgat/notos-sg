@@ -31,7 +31,7 @@
         }
 
         function suggest(data) {
-            return HTTPCache.one('websites').post('suggest', {data: data});
+            return HTTPCache.one('websites').post('suggest', data);
         }
     }
 })();
