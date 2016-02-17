@@ -62,7 +62,8 @@
                         if (_.some(terms, function (t) {
                                 return nameContainsTerm(website.name, t) ||
                                     descriptionContainsTerm(website.description, t) ||
-                                    objectivesContainsTerm(website.objectives, t);
+                                    objectivesContainsTerm(website.objectives, t) ||
+                                    tagsContainsTerm(website.tags, t);
                             })) {
                             addUnique(website, filtered);
                         }
@@ -93,6 +94,12 @@
                     return o && (_.contains(o.code.toLowerCase(), term.toLowerCase()) ||
                         _.contains(o.name.toLowerCase(), term.toLowerCase()));
                 });
+            }
+
+            function tagsContainsTerm(tags, term) {
+                return _.some(tags, function (t) {
+                    return t && (_.contains(t.name.toLowerCase(), term.toLowerCase()));
+                })
             }
         }
 
