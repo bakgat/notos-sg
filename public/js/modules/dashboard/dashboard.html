@@ -49,13 +49,15 @@
                     <div class="category-img"
                          data-ng-class="{narrow: vm.filter.terms !== '' || vm.filter.tags.length > 0 || vm.filter.levels.length > 0}"
                          data-ng-if="vm.randomSite">
-                        <img class="replace-2x" data-ng-src="{{vm.randomSite.image.thumbpath}}" width="870"
-                             height="270" alt="">
+                        <a ng-href="{{vm.randomSite.url}}" target="_blank">
+                            <img class="replace-2x" data-ng-src="{{vm.randomSite.image.thumbpath}}" width="870"
+                                 height="270" alt="">
 
-                        <div class="description">
-                            In de kijker: {{vm.randomSite.name}}<br>
-                            <small>{{vm.randomSite.description}}</small>
-                        </div>
+                            <div class="description">
+                                In de kijker: {{vm.randomSite.name}}<br>
+                                <small>{{vm.randomSite.description}}</small>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="toolbar clearfix">
